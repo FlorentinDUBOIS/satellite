@@ -19,7 +19,7 @@ def process(lines):
     name = lines[0].replace(" ", "").replace("'", "")
     lon = degrees(iss.sublong)
     lat = degrees(iss.sublat)
-    elev = iss.elevation
+    elev = int(iss.elevation*1000)
     td = (now - datetime.datetime(1970, 1, 1))
     ts = (td.microseconds + (td.seconds + td.days * 24 * 3600) * 10**6)
     return "{0}/{1}:{2}/{3} celestrak.stations{{name={4}}} T\n".format(
